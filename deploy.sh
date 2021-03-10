@@ -6,6 +6,8 @@ set -e
 # build
 npm run build
 
+cp -rp ./sitemap.xml dist/
+
 # navigate into the build output directory
 cd dist
 
