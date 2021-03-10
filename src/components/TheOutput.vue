@@ -46,6 +46,13 @@ export default {
     input: function() {
       worker.postMessage({setting: this.setting, input: this.input});
       worker.onmessage = (event) => this.output = event.data;
+    },
+    setting: {
+      handler (){
+        worker.postMessage({setting: this.setting, input: this.input});
+        worker.onmessage = (event) => this.output = event.data;
+      },
+      deep: true
     }
   },
   methods: {
