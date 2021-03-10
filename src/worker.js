@@ -4,6 +4,12 @@ addEventListener('message', (event) => {
   const { setting, input } = event.data;
   let prevText = '';
   const renderer = {
+    blockquote(quote) {
+      const lastNewLinesRemoved = quote.replace(/\n+$/, '');
+      const quoted = lastNewLinesRemoved.split(/\r?\n/).map(line => `> ${line}`).join('\n');
+      const lastNewLineAdded = quoted.replace(/$/, '\n\n');
+      return lastNewLineAdded;
+    },
     heading(text, level) {
       const headingLevel = `h${level}`;
       return `${setting[headingLevel]}${text}\n\n`;
