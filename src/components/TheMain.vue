@@ -51,7 +51,7 @@ export default {
 @media (min-width: 480px) {
   .main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 }
 </style>
